@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.slick-slide > div {
+  margin: 0 5px;
+}
+.slick-list {
+  margin: 0 -10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.slick-slide *:focus{
+  outline: none;
+}
+
+.slick-prev {
+  left: 0% !important;
+  z-index: 1;
+  background-color: rgb(192, 189, 189);
+}
+.slick-next {
+  right: 0% !important;
+  z-index: 1;
+  background-color: rgb(192, 189, 189);
+}
+ 
+
+.tabs-item-title {
+  /* Your desired styles here */
+ font-size: 500px;
+}
+.text-sm {
+  font-size: 1.5rem;
+  line-height: 1.25rem;
+}
