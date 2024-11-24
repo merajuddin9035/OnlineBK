@@ -15,19 +15,21 @@ const Chicken = () => {
   useEffect(() => {
     const fetchChickenProducts = async () => {
       try {
-        const response = await axios.get('https://online-bk-merajuddins-projects.vercel.app/api/products/category/chicken');
-        const products = Array.isArray(response.data) ? response.data : [];
-        setChickenProducts(products);
+        const response = await axios.get(
+          'https://online-bk-merajuddins-projects.vercel.app/api/products/category/chicken'
+        );
+        setChickenProducts(Array.isArray(response.data) ? response.data : []);
       } catch (error) {
-        console.error('Error fetching chicken products:', error);
-        setError('Failed to fetch chicken products');
+        console.error('Error fetching chicken products:', error.response || error.message || error);
+        setError(error.response?.data?.message || 'Failed to fetch chicken products');
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchChickenProducts();
   }, []);
+  
 
   const handleAddToCart = (itemId) => {
     const selectedItem = chickenProducts.find((item) => item._id === itemId);
