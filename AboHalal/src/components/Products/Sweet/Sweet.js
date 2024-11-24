@@ -13,7 +13,7 @@ const Sweet = () => {
   useEffect(() => {
     const fetchSweetProducts = async () => {
       try {
-        const response = await axios.get('https://online-bk-merajuddins-projects.vercel.app/products/category/sweet');
+        const response = await axios.get('http://localhost:5000/api/products/category/sweet');
         console.log("API Response:", response.data);
         const products = Array.isArray(response.data) ? response.data : [];
         setSweetProducts(products);

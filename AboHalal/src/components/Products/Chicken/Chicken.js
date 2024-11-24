@@ -16,7 +16,8 @@ const Chicken = () => {
   const fetchChickenProducts = async () => {
     try {
       const response = await axios.get(
-        'https://online-bk-merajuddins-projects.vercel.app/api/products/category/chicken'
+        'http://localhost:5000/api/products/category/chicken'
+
       );
       const products = Array.isArray(response.data) ? response.data : [];
       setChickenProducts(products);

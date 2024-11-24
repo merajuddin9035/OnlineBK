@@ -17,7 +17,7 @@ const Snacks = () => {
   const fetchSnackProducts = async () => {
     try {
       const response = await axios.get(
-        "https://online-bk-merajuddins-projects.vercel.app/category/snacks"
+        "http://localhost:5000/api/category/snacks"
       );
 
       // Ensure the response is an array and update the state

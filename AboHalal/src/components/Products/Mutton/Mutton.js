@@ -17,7 +17,7 @@ const Mutton = () => {
   const fetchMuttonProducts = async () => {
     try {
       const response = await axios.get(
-        "https://online-bk-merajuddins-projects.vercel.app/products/category/mutton"
+        "http://localhost:5000/api/products/category/mutton"
       );
 
       // Ensure response data is an array
