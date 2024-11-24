@@ -16,7 +16,7 @@ const Chicken = () => {
   useEffect(() => {
     const fetchChickenProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products/category/chicken');
+        const response = await axios.get('https://online-bk-merajuddins-projects.vercel.app/api/products/category/chicken');
         setChickenProducts(response.data);
       } catch (error) {
         console.error('Error fetching chicken products:', error);

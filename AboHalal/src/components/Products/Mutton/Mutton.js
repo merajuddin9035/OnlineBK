@@ -16,7 +16,7 @@ const Mutton = () => {
   useEffect(() => {
     const fetchMuttonProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products/category/mutton');
+        const response = await axios.get('https://online-bk-merajuddins-projects.vercel.app/products/category/mutton');
         setMuttonProducts(response.data);
       } catch (error) {
         console.error('Error fetching mutton products:', error);

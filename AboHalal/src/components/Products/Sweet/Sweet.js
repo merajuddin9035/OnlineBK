@@ -18,7 +18,7 @@ const Sweet = () => {
   useEffect(() => {
     const fetchSweetProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products/category/sweet');
+        const response = await axios.get('https://online-bk-merajuddins-projects.vercel.app/products/category/sweet');
         setSweetProducts(response.data);
       } catch (error) {
         console.error('Error fetching sweet products:', error);
