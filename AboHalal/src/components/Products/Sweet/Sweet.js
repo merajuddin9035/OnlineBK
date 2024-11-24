@@ -6,36 +6,27 @@ import axios from "axios";
 
 const Sweet = () => {
   const dispatch = useDispatch();
-  const wishListProducts = useSelector((state) => state.cartAndWishList.WishListproducts);
-
   const [sweetProducts, setSweetProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchSweetProducts = async () => {
-    try {
-      const response = await axios.get(
-        "https://online-bk-merajuddins-projects.vercel.app/products/category/sweet"
-      );
-      const products = Array.isArray(response.data) ? response.data : [];
-      setSweetProducts(products);
-    } catch (error) {
-      console.error("Error fetching sweet products:", error.response || error.message || error);
-      setError("Failed to fetch sweet products");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchSweetProducts = async () => {
+      try {
+        const response = await axios.get('https://online-bk-merajuddins-projects.vercel.app/products/category/sweet');
+        console.log("API Response:", response.data);
+        const products = Array.isArray(response.data) ? response.data : [];
+        setSweetProducts(products);
+      } catch (error) {
+        console.error('Error fetching sweet products:', error);
+        setError('Failed to fetch sweet products');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchSweetProducts();
   }, []);
-
-  const handleRetry = () => {
-    setLoading(true);
-    setError(null);
-    fetchSweetProducts();
-  };
 
   const handleAddToCart = (itemId) => {
     const selectedItem = sweetProducts.find((item) => item._id === itemId);
@@ -52,11 +43,7 @@ const Sweet = () => {
   };
 
   if (loading) {
-    return (
-      <div className="text-center">
-        <p>Loading sweet products...</p>
-      </div>
-    );
+    return <div className="text-center"><p>Loading sweet products...</p></div>;
   }
 
   if (error) {
@@ -64,7 +51,7 @@ const Sweet = () => {
       <div className="text-center text-red-500">
         <p>{error}</p>
         <button
-          onClick={handleRetry}
+          onClick={() => window.location.reload()}
           className="mt-3 bg-blue-500 text-white px-4 py-2 rounded"
         >
           Retry
@@ -80,13 +67,12 @@ const Sweet = () => {
   return (
     <div className="text-center mt-10 p-5">
       <p className="text-3xl font-bold mb-10">ALL Sweet Products List</p>
-
       <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-4">
         {sweetProducts.map((item, index) => (
           <div key={index} className="border border-1 border-gray-200 bg-gray-100 rounded-lg">
             <div className="p-4">
               <p className="px-1 w-[72%] md:w-[30%] text-white font-bold bg-[#E95B3E] rounded">
-                {item.discount ? `${item.discount}% OFF` : "No Discount"}
+                {item.discount || "No Discount"}
               </p>
             </div>
             <div className="flex">
