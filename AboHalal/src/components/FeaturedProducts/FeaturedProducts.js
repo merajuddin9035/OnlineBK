@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/featured-products"); // Fetch featured products from the backend
+        const response = await axios.get("https://online-bk-merajuddins-projects.vercel.app/api/featured-products"); // Fetch featured products from the backend
         setProducts(response.data); // Set the products in state
         setLoading(false);
       } catch (error) {

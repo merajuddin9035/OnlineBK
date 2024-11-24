@@ -16,7 +16,7 @@ const BestProduct = () => {
     // Fetch best deals from the API
     const fetchBestDeals = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/best-deals");
+        const response = await axios.get("https://online-bk-merajuddins-projects.vercel.app/best-deals");
         setBestDeals(response.data);
         setLoading(false);
       } catch (error) {

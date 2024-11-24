@@ -36,7 +36,7 @@ const Profile = () => {
     // Fetch user details
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/me", {
+        const response = await fetch("https://online-bk-merajuddins-projects.vercel.app/api/auth/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

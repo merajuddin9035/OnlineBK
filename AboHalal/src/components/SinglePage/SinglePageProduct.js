@@ -30,7 +30,7 @@ const SinglePageProduct = () => {
     const fetchProductDetail = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/${id}`
+          `https://online-bk-merajuddins-projects.vercel.app/api/products/${id}`
         );
         console.log(response.data); // Log the API response to check data
         setProductDetail(response.data); // Set product data

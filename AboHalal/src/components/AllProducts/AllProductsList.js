@@ -18,7 +18,7 @@ const AllProductsList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products"); // Replace with your API endpoint
+        const response = await axios.get("https://online-bk-merajuddins-projects.vercel.app/api/products"); // Replace with your API endpoint
         setProducts(response.data.products); // Extract and set the products in state
         setLoading(false);
       } catch (error) {
